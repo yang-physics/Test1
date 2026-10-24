@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>杨老师的物理课</title>
+<meta name="description" content="高中物理课程主页：课程单元、互动实验与学习资源">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --ink: #1d2433;
+    --muted: #5d6577;
+    --line: #e2ded4;
+    --accent: #1f5fbf;
+    --accent-soft: #e6eefb;
+    --warm: #d9622b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c;
+      --surface: #1a1f29;
+      --ink: #e7e9ee;
+      --muted: #9aa2b3;
+      --line: #2b3240;
+      --accent: #6ea2f2;
+      --accent-soft: #1d2a40;
+      --warm: #f08a55;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
+  .eyebrow { color: var(--warm); font-weight: 600; letter-spacing: .08em; font-size: 14px; }
+  h1 { font-size: clamp(32px, 6vw, 48px); margin: 8px 0 12px; line-height: 1.2; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0; }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+  nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  nav a:hover { text-decoration: underline; }
+  section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 26px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .units { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .unit {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px;
+  }
+  .unit .num { font-size: 13px; color: var(--warm); font-weight: 600; }
+  .unit h3 { margin: 4px 0 8px; font-size: 19px; }
+  .unit p { margin: 0; color: var(--muted); font-size: 15px; }
+  .lab {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px;
+  }
+  canvas { width: 100%; height: auto; display: block; background: var(--accent-soft); border-radius: 8px; }
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 24px; margin-top: 18px; }
+  .controls label { display: block; font-size: 15px; }
+  .controls output { font-weight: 600; color: var(--accent); }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  .readout { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; font-size: 15px; }
+  .readout b { color: var(--warm); }
+  button {
+    margin-top: 16px; padding: 10px 22px; font-size: 16px; border: none; border-radius: 8px;
+    background: var(--accent); color: #fff; cursor: pointer; font-family: inherit;
+  }
+  button:hover { filter: brightness(1.08); }
+  .question {
+    margin-top: 18px; padding: 14px 16px; border-left: 4px solid var(--warm);
+    background: var(--accent-soft); border-radius: 0 8px 8px 0; font-size: 15px;
+  }
+  ul.res { padding-left: 20px; margin: 0; }
+  ul.res li { margin-bottom: 8px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">PHYSICS · 物理</div>
+    <h1>杨老师的物理课</h1>
+    <p class="lead">从生活中的现象出发，理解世界运行的规律。这里有课程安排、互动小实验和课后学习资源。</p>
+    <nav>
+      <a href="#units">课程单元</a>
+      <a href="#lab">互动实验</a>
+      <a href="#resources">学习资源</a>
+    </nav>
+  </header>
+
+  <section id="units">
+    <h2>课程单元</h2>
+    <p class="sub">本学期按以下四个单元推进。</p>
+    <div class="units">
+      <div class="unit"><div class="num">单元 1</div><h3>力学</h3><p>运动的描述、牛顿运动定律、抛体与圆周运动、机械能守恒。</p></div>
+      <div class="unit"><div class="num">单元 2</div><h3>电磁学</h3><p>电场与电势、恒定电流、磁场、电磁感应。</p></div>
+      <div class="unit"><div class="num">单元 3</div><h3>热学</h3><p>分子动理论、气体实验定律、热力学第一定律。</p></div>
+      <div class="unit"><div class="num">单元 4</div><h3>光学与波</h3><p>机械波、光的折射与反射、干涉和衍射。</p></div>
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>互动实验：抛体运动</h2>
+    <p class="sub">调整初速度和发射角度，观察小球的运动轨迹（忽略空气阻力，g = 9.8 m/s²）。</p>
+    <div class="lab">
+      <canvas id="cv" width="880" height="360" aria-label="抛体运动轨迹图"></canvas>
+      <div class="controls">
+        <label>初速度 v₀：<output id="vOut">20</output> m/s
+          <input id="v" type="range" min="5" max="30" step="1" value="20">
+        </label>
+        <label>发射角 θ：<output id="aOut">45</output>°
+          <input id="a" type="range" min="5" max="85" step="1" value="45">
+        </label>
+      </div>
+      <div class="readout">
+        <span>飞行时间：<b id="tR">–</b> s</span>
+        <span>最大高度：<b id="hR">–</b> m</span>
+        <span>水平射程：<b id="rR">–</b> m</span>
+      </div>
+      <button id="go">发射</button>
+      <div class="question">思考：初速度不变时，什么角度射程最远？30° 和 60° 的射程有什么关系？试试看。</div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <h2>学习资源</h2>
+    <p class="sub">课后自学与复习可以参考这些内容。</p>
+    <ul class="res">
+      <li><a href="https://phet.colorado.edu/zh_CN/" target="_blank" rel="noopener">PhET 互动仿真实验（科罗拉多大学）</a>：大量免费的物理仿真，可在线操作。</li>
+      <li>每单元的讲义和练习题将陆续上传到本页面。</li>
+      <li>有问题欢迎课后来办公室交流。</li>
+    </ul>
+  </section>
+
+  <footer>© 杨老师的物理课 · 页面托管于 GitHub Pages</footer>
+</div>
+
+<script>
+(function () {
+  const g = 9.8;
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+  const vIn = document.getElementById('v'), aIn = document.getElementById('a');
+  const vOut = document.getElementById('vOut'), aOut = document.getElementById('aOut');
+  const tR = document.getElementById('tR'), hR = document.getElementById('hR'), rR = document.getElementById('rR');
+  const W = cv.width, H = cv.height, pad = 40;
+  const maxRange = 30 * 30 / g;           // 最远射程（v=30, 45°）
+  const maxHeight = 30 * 30 / (2 * g);     // 最大高度（v=30, 90°）
+  const scale = Math.min((W - 2 * pad) / maxRange, (H - 2 * pad) / maxHeight);
+  let trails = [], anim = null;
+
+  function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function toPx(x, y) { return [pad + x * scale, H - pad - y * scale]; }
+
+  function params() {
+    const v = +vIn.value, th = +aIn.value * Math.PI / 180;
+    const T = 2 * v * Math.sin(th) / g;
+    return { v, th, T, Hmax: (v * Math.sin(th)) ** 2 / (2 * g), R: v * v * Math.sin(2 * th) / g };
+  }
+
+  function drawAxes() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.strokeStyle = css('--muted'); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad, H - pad); ctx.lineTo(W - 10, H - pad); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(pad, H - pad); ctx.lineTo(pad, 10); ctx.stroke();
+    ctx.fillStyle = css('--muted'); ctx.font = '13px sans-serif';
+    for (let m = 0; m <= maxRange; m += 10) {
+      const [x] = toPx(m, 0);
+      ctx.fillText(m + ' m', x - 10, H - pad + 18);
+    }
+  }
+
+  function drawPath(p, upto, color, width) {
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath();
+    for (let t = 0; t <= upto; t += upto / 120) {
+      const [x, y] = toPx(p.v * Math.cos(p.th) * t, p.v * Math.sin(p.th) * t - g * t * t / 2);
+      t === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  function redraw(p, t) {
+    drawAxes();
+    trails.forEach(tr => drawPath(tr, tr.T, css('--line'), 2));
+    ctx.setLineDash([6, 6]); drawPath(p, p.T, css('--muted'), 1); ctx.setLineDash([]);
+    if (t != null) {
+      drawPath(p, t, css('--accent'), 3);
+      const [x, y] = toPx(p.v * Math.cos(p.th) * t, p.v * Math.sin(p.th) * t - g * t * t / 2);
+      ctx.fillStyle = css('--warm'); ctx.beginPath(); ctx.arc(x, y, 8, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  function update() {
+    vOut.textContent = vIn.value; aOut.textContent = aIn.value;
+    const p = params();
+    tR.textContent = p.T.toFixed(2); hR.textContent = p.Hmax.toFixed(1); rR.textContent = p.R.toFixed(1);
+    if (!anim) redraw(p, null);
+  }
+
+  document.getElementById('go').addEventListener('click', () => {
+    if (anim) cancelAnimationFrame(anim);
+    const p = params(), start = performance.now(), speed = 1.5;
+    function step(now) {
+      const t = Math.min((now - start) / 1000 * speed, p.T);
+      redraw(p, t);
+      if (t < p.T) anim = requestAnimationFrame(step);
+      else { anim = null; trails.push(p); if (trails.length > 5) trails.shift(); redraw(p, p.T); }
+    }
+    anim = requestAnimationFrame(step);
+  });
+  vIn.addEventListener('input', update); aIn.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>
